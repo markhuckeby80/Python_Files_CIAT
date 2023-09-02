@@ -1,0 +1,19 @@
+The symmetric difference of two sets is a set that contains the elements that are not shared
+by the sets. In other words, it is the elements that are in one set but not in both. In Python,
+you can call the symmetric_difference method to get the symmetric difference of two
+sets. Here is the general format:
+In this section, you will look at Program 9-3, which demonstrates various set operations.
+The program creates two sets: one that holds the names of students on the baseball team,
+and another that holds the names of students on the basketball team. The program then
+performs the following operations:
+• It finds the intersection of the sets to display the names of students who play both
+sports.
+• It finds the union of the sets to display the names of students who play either sport.
+• It finds the difference of the baseball and basketball sets to display the names of students
+ who play baseball but not basketball.
+• It finds the difference of the basketball and baseball (basketball – baseball) sets to
+display the names of students who play basketball but not baseball. It also finds the
+difference of the baseball and basketball (baseball – basketball) sets to display the
+names of students who play baseball but not basketball.
+• It finds the symmetric difference of the basketball and baseball sets to display the
+names of students who play one sport but not both.

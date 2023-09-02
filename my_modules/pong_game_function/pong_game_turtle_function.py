@@ -3,16 +3,17 @@ import turtle
 import time
 import tkinter as tk
 
-def main_pong_game():
 
+def main_pong_game():
     pygame.mixer.init()
 
     # Load sound files
-    intro_sound = pygame.mixer.Sound("C:\\Users\\markh\OneDrive\\Documents\\Mark_Python_Files\\my_modules\\cool_tetris.wav")
-    paddle_hit_sound = pygame.mixer.Sound("C:\\Users\\markh\\OneDrive\\Documents\\Mark_Python_Files\\my_modules\\paddle_hit.wav")
-    goal_scored_sound = pygame.mixer.Sound("C:\\Users\\markh\\OneDrive\\Documents\\Mark_Python_Files\\my_modules\\goal_hit.wav")
-    
-
+    intro_sound = pygame.mixer.Sound(
+        "my_modules\\pong_game_function\\cool_tetris.wav")
+    paddle_hit_sound = pygame.mixer.Sound(
+        "my_modules\\pong_game_function\\paddle_hit.wav")
+    goal_scored_sound = pygame.mixer.Sound(
+        "my_modules\\pong_game_function\\goal_hit.wav")
 
     def setup_game_window():
         window = turtle.Screen()
@@ -78,7 +79,7 @@ def main_pong_game():
 
     def check_paddle_collision():
         if (340 > ball.xcor() > 330 and paddle_b.ycor() + 50 > ball.ycor() > paddle_b.ycor() - 50) or \
-        (-340 < ball.xcor() < -330 and paddle_a.ycor() + 50 > ball.ycor() > paddle_a.ycor() - 50):
+                (-340 < ball.xcor() < -330 and paddle_a.ycor() + 50 > ball.ycor() > paddle_a.ycor() - 50):
             ball.dx *= -1
             paddle_hit_sound.play()
 
@@ -103,10 +104,9 @@ def main_pong_game():
 
     def update_score():
         score_pen.clear()
-        score_pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center", font=("Courier", 24, "normal"))
+        score_pen.write("Player A: {}  Player B: {}".format(score_a, score_b), align="center",
+                        font=("Courier", 24, "normal"))
 
-
-    
     # show_welcome_message()
     def show_welcome_message():
 
@@ -127,21 +127,19 @@ def main_pong_game():
         # Clean up the pygame.mixer resources
         pygame.mixer.quit()
 
-   
     window = setup_game_window()
     show_welcome_message()
-        
 
     def game_loop():
-        
+
         while True:
             if score_a == 3 or score_b == 3:
                 end_game()
                 break
-            
+
             try:
-                
-                window.update()        
+
+                window.update()
                 ball.setx(ball.xcor() + ball.dx)
                 ball.sety(ball.ycor() + ball.dy)
 
@@ -150,19 +148,16 @@ def main_pong_game():
                 check_goal()
             except tk.TclError:
                 break
-        
-            
+
     def end_game():
 
         if score_a == 3:
             draw_text("Player A wins!", (0, 0), 24, "white")
-            
-                    
+
+
         elif score_b == 3:
             draw_text("Player B wins!", (0, 0), 24, "white")
-            
-   
-        
+
     # Paddle A
     paddle_a = create_paddle(-350, "white")
 
@@ -195,5 +190,7 @@ def main_pong_game():
 
     turtle.mainloop()
 
+
 # call the function
-main_pong_game()  
+if __name__ == "__main__":
+    main_pong_game()

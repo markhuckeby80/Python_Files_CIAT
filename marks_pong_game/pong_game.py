@@ -196,4 +196,5 @@ def main_pong_game():
     turtle.mainloop()
 
 # call the function
-main_pong_game()  
+if __name__ == '__main__':
+    main_pong_game()
